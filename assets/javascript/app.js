@@ -3,8 +3,8 @@ var animals = ["cats", "dogs"];
 function addSearchButton(animal) {
      
     var newButton = $("<button>");
-    newButton.addClass("btn btn-success");
-    newButton.attr("id", animal);
+    newButton.addClass("btn btn-success animal-button");
+    newButton.attr("data-name", animal);
     newButton.text(animal);
     $("#button-row").append(newButton);
     
@@ -33,6 +33,9 @@ $(document).ready(function() {
         }
     })
 
-
+    $("#button-row").on("click", ".animal-button", function() {
+        console.log($(this));
+        console.log($(this).attr("data-name"));
+    })
 
 });
