@@ -6,24 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>GIFTastic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
-        
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="./assets/javascript/app.js"></script>
 </head>
 
 <body>
     <div class="container h-100">
-        <div class="row button-row">
+        <div class="row" id="button-row">
             Another Test
         </div>
         <div class="row h-100">
             <div class="col-sm-8">
-                oiho
+                <div id="gifImages"></div>
             </div>
             <div class="col-sm-4">
-                pop
+                <form>
+                    <div class="form-group">
+                        <label for="newItem">Enter an animal</label>
+                        <input type="text" class="form-control" id="newItem" aria-describedby="emailHelp" placeholder="Raccoons, squirrels, etc.">
+                    </div>
+                    <button type="submit" class="btn btn-success" id="submitButton">Submit</button>
+                </form>
             </div>
         </div>
 
