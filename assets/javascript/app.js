@@ -34,6 +34,34 @@ function loadButtons() {
     }
 }
 
+//Function to build a card with the GIF
+function buildGifCard(gif) {
+//     <div class="card" style="width: 18rem;">
+//   <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+//   <div class="card-body">
+//     <h5 class="card-title">Card title</h5>
+//     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+//     <a href="#" class="btn btn-primary">Go somewhere</a>
+//   </div>
+// </div>
+
+var newCard = $("<div>");
+newCard.addClass("card");
+var tempDiv = $("<img>");
+tempDiv.addClass("card-img-top");
+tempDiv.attr("src", gif.images.fixed_width_small.url);
+console.log(gif.images.fixed_width_small.url);
+newCard.append(tempDiv);
+
+tempDiv = $("<div>");
+tempDiv.addClass("card-body");
+tempDiv.append("<h5 class='card-title'>" + gif.rating + "</h5>");
+
+newCard.append(tempDiv);
+return newCard;
+    
+}
+
 
 $(document).ready(function() {
     loadButtons();
@@ -52,8 +80,18 @@ $(document).ready(function() {
         // console.log($(this));
         // console.log($(this).attr("data-name"));
         searchTerm = $(this).attr("data-name");
-        console.log(buildQuery());
-
+        // console.log(buildQuery());
+        
+        // AjaX call to get the GIFs
+        $.ajax({
+            url: buildQuery(),
+            method: "GET"
+        }).then( (response) => {
+            console.log(response);
+            $("#gifImages").append(buildGifCard(response.data[0]));
+        })
     });
+
+
 
 });
