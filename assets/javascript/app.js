@@ -38,7 +38,7 @@ function loadButtons() {
 function buildGifCard(gif) {
 
     var newCard = $("<div>");
-    newCard.addClass("card col-sm-4");
+    newCard.addClass("card col-sm-6 col-md-4");
     var tempDiv = $("<img>");
     tempDiv.addClass("card-img-top gif");
     tempDiv.attr("src", gif.images.fixed_height_still.url);
