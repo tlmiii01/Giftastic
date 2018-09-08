@@ -91,8 +91,17 @@ $(document).ready(function () {
 
     $("#gifImages").on("click", ".gif", function() {
         console.log($(this));
-    })
 
+        var state = $(this).attr("state");
+        console.log(state);
 
-
+        if (state === "still") {
+            $(this).attr("state", "running");
+            $(this).attr("src", $(this).attr("data-running"));
+        } else {
+            $(this).attr("state", "still");
+            $(this).attr("src", $(this).attr("data-still"));
+            
+        }
+    });
 });
