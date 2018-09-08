@@ -40,9 +40,12 @@ function buildGifCard(gif) {
     var newCard = $("<div>");
     newCard.addClass("card col-sm-4");
     var tempDiv = $("<img>");
-    tempDiv.addClass("card-img-top");
+    tempDiv.addClass("card-img-top gif");
     tempDiv.attr("src", gif.images.fixed_height_still.url);
-    console.log(gif.images.fixed_height_still.url);
+    // console.log(gif.images.fixed_height_still.url);
+    tempDiv.attr("data-still", gif.images.fixed_height_still.url);
+    tempDiv.attr("data-running", gif.images.fixed_height.url);
+    tempDiv.attr("state", "still");
     newCard.append(tempDiv);
 
     tempDiv = $("<div>");
@@ -85,6 +88,10 @@ $(document).ready(function () {
             }
         });
     });
+
+    $("#gifImages").on("click", ".gif", function() {
+        console.log($(this));
+    })
 
 
 
