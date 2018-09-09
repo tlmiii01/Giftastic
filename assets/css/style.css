@@ -5,3 +5,8 @@ html, body {
 .card>img {
     height: 200px;
 }
+
+.animal-button {
+    margin: 0.5rem;
+}
+

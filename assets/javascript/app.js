@@ -1,4 +1,4 @@
-var animals = ["cats", "dogs"];
+var animals = ["cats", "dogs", "goats", "sheep", "llamas"];
 var searchTerm;
 var numberOfGifs = 10;
 
@@ -16,6 +16,8 @@ function buildQuery() {
 }
 
 function addSearchButton(animal) {
+
+
 
     var newButton = $("<button>");
     newButton.addClass("btn btn-success animal-button");
@@ -42,7 +44,6 @@ function buildGifCard(gif) {
     var tempDiv = $("<img>");
     tempDiv.addClass("card-img-top gif");
     tempDiv.attr("src", gif.images.fixed_height_still.url);
-    // console.log(gif.images.fixed_height_still.url);
     tempDiv.attr("data-still", gif.images.fixed_height_still.url);
     tempDiv.attr("data-running", gif.images.fixed_height.url);
     tempDiv.attr("state", "still");
@@ -50,7 +51,7 @@ function buildGifCard(gif) {
 
     tempDiv = $("<div>");
     tempDiv.addClass("card-body");
-    tempDiv.append("<h5 class='card-title'>" + gif.rating + "</h5>");
+    tempDiv.append("<h5 class='card-title'>Rating: " + gif.rating + "</h5>");
 
     newCard.append(tempDiv);
     return newCard;
@@ -65,8 +66,10 @@ $(document).ready(function () {
         event.preventDefault();
 
         var newAnimal = $("#newItem").val();
-        if (newAnimal != "") {
+        if ((newAnimal != "") && (animals.indexOf(newAnimal) === -1)) {
             console.log(newAnimal);
+            // Add animal to the array
+            animals.push(newAnimal);
             addSearchButton(newAnimal);
         }
     });
@@ -89,7 +92,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#gifImages").on("click", ".gif", function() {
+    $("#gifImages").on("click", ".gif", function () {
         console.log($(this));
 
         var state = $(this).attr("state");
@@ -101,7 +104,7 @@ $(document).ready(function () {
         } else {
             $(this).attr("state", "still");
             $(this).attr("src", $(this).attr("data-still"));
-            
+
         }
     });
 });
