@@ -6,11 +6,11 @@ var numberOfGifs = 10;
 
 function buildQuery() {
     var apiKey = "HotDTaBju1BKdzeosh4NfXZVRsKBVo2s";
-    var baseURL = "http://api.giphy.com/v1/gifs/search";
+    var baseURL = "https://api.giphy.com/v1/gifs/search";
 
     var newQuery = baseURL + "?api_key=" + apiKey;
     newQuery += "&q=" + searchTerm;
-    newQuery += "&limit=" + numberOfGifs;
+    newQuery += "&limit=" + numberOfGifs + "/";
 
     return newQuery;
 }
